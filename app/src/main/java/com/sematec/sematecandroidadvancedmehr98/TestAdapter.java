@@ -4,13 +4,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
+
 public class TestAdapter extends RecyclerView.Adapter<TestAdapter.TestViewHolder> {
 
+    private List<PersonNameModel> list;
+    private ClickInterface listener;
+
+    TestAdapter(List<PersonNameModel> list, ClickInterface listener) {
+        this.list = list;
+        this.listener = listener;
+    }
 
     @NonNull
     @Override
@@ -21,29 +29,12 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.TestViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull TestViewHolder holder, int position) {
-
-        switch (position) {
-            case 0:
-                holder.onBind("Qoli", "Qolizade");
-                break;
-            case 1:
-                holder.onBind("Ali", "Alipour");
-                break;
-            case 2:
-                holder.onBind("Mamad", "Mamadnezhad");
-                break;
-            case 3:
-                holder.onBind("Sakine", "SakineKhah");
-                break;
-            case 4:
-                holder.onBind("Sudabe", "Sudabee");
-                break;
-        }
+        holder.onBind(list.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return 5;
+        return list.size();
     }
 
     class TestViewHolder extends RecyclerView.ViewHolder {
@@ -55,17 +46,15 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.TestViewHolder
             super(itemView);
             text1 = itemView.findViewById(R.id.text1);
             v = itemView;
-
         }
 
-        void onBind(String name, final String family) {
-
-            text1.setText(name);
+        void onBind(final PersonNameModel model) {
+            text1.setText(model.getName());
 
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(v.getContext(), family, Toast.LENGTH_SHORT).show();
+                    listener.onRecyclerItemClicked(model.getFamily());
                 }
             });
         }
