@@ -6,11 +6,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.recycler_item.view.*
 
-class TestKotlinRecyclerAdapter(val list: List<String>) :
+class TestKotlinRecyclerAdapter(private val list: List<String>, val activityFunction: (String) -> Unit) :
     RecyclerView.Adapter<TestKotlinRecyclerAdapter.TestKotlinRecyclerViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TestKotlinRecyclerViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): TestKotlinRecyclerViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.recycler_item, parent, false)
-        return TestKotlinRecyclerViewHolder(v)
+        return TestKotlinRecyclerViewHolder(v, activityFunction)
     }
 
     override fun getItemCount() = list.size
@@ -19,9 +22,11 @@ class TestKotlinRecyclerAdapter(val list: List<String>) :
         holder.bind(list[position])
     }
 
-    class TestKotlinRecyclerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class TestKotlinRecyclerViewHolder(itemView: View, val activityFunction: (String) -> Unit) :
+        RecyclerView.ViewHolder(itemView) {
         fun bind(s: String) {
             itemView.text1.text = s
+            itemView.setOnClickListener { activityFunction(s) }
         }
     }
 }

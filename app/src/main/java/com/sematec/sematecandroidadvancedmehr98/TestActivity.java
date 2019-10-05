@@ -8,7 +8,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class TestActivity extends AppCompatActivity implements View.OnClickListener{
+public class TestActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,9 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
         Log.d("PERSON", person.toString());
 
 
+        FunctionUtilsKt.sum(10, 29);
+
+
         AnimalClass animal = new AnimalClass();
         DogClass dog = (DogClass) animal;
 
@@ -32,7 +35,6 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
 
         CatClass cat = new CatClass();
         AnimalClass animal1 = cat;
-
 
 
         txtSample.setOnClickListener(this);
