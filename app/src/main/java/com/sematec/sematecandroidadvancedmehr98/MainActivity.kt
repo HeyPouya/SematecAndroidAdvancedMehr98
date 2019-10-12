@@ -3,14 +3,13 @@ package com.sematec.sematecandroidadvancedmehr98
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
-
-
 class MainActivity : AppCompatActivity() {
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
 
         //variable
         var name = "Qoli"
@@ -60,9 +59,9 @@ class MainActivity : AppCompatActivity() {
         return ""
     }
 
-    fun sum(firstNumber: Int, secondNumber: Int): Int {
-        return firstNumber + secondNumber
-    }
+//    fun sum(firstNumber: Int, secondNumber: Int): Int {
+//        return firstNumber + secondNumber
+//    }
 
 
     fun sub(firstNumber: Int, secondNumber: Int) = firstNumber - secondNumber

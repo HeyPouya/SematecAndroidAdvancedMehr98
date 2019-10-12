@@ -18,6 +18,8 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.TestViewHolder
     TestAdapter(List<PersonNameModel> list, ClickInterface listener) {
         this.list = list;
         this.listener = listener;
+
+
     }
 
     @NonNull
