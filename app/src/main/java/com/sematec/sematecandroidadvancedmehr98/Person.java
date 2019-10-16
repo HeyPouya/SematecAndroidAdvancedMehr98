@@ -3,10 +3,15 @@ package com.sematec.sematecandroidadvancedmehr98;
 import androidx.annotation.NonNull;
 
 public class Person {
+    public Person(String name, String family, int age) {
+        this.name = name;
+        this.family = family;
+        this.age = age;
+    }
+
     private String name;
     private String family;
-    private String fatherName;
-    private String nationalCode;
+    private int age;
 
     public String getName() {
         return name;
@@ -24,26 +29,19 @@ public class Person {
         this.family = family;
     }
 
-    public String getFatherName() {
-        return fatherName;
-    }
-
-    public void setFatherName(String fatherName) {
-        this.fatherName = fatherName;
-    }
-
-    public String getNationalCode() {
-        return nationalCode;
-    }
-
-    public void setNationalCode(String nationalCode) {
-        this.nationalCode = nationalCode;
-    }
 
     @NonNull
     @Override
     public String toString() {
         return "Name is : " + getName() + "\n" +
                 "Family is : " + getFamily();
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }

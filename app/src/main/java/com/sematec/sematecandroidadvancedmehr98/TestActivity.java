@@ -17,12 +17,12 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
 
 
         TextView txtSample = findViewById(R.id.txtSample);
-        Person person = new Person();
-        person.setName("Qoli");
-        person.setFamily("Qolizade");
-
-
-        Log.d("PERSON", person.toString());
+////        Person person = new Person();
+//        person.setName("Qoli");
+//        person.setFamily("Qolizade");
+//
+//
+//        Log.d("PERSON", person.toString());
 
 
         FunctionUtilsKt.sum(10, 29);
