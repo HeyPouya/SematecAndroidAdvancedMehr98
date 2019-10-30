@@ -10,6 +10,9 @@ import kotlinx.android.synthetic.main.activity_test_kotlin_recycler.*
 class TestKotlinRecyclerActivity : AppCompatActivity() {
 
 
+    val myList = ArrayList<String>()
+    lateinit var adapter: TestKotlinRecyclerAdapter
+
     fun something(name: String) {
         Toast.makeText(this, name, Toast.LENGTH_LONG).show()
     }
@@ -19,11 +22,9 @@ class TestKotlinRecyclerActivity : AppCompatActivity() {
         setContentView(R.layout.activity_test_kotlin_recycler)
 
 
+        setUpRecyclerView()
         val number: Int = 20
 
-        val lambdaFunction: (String) -> Unit = {
-            showToast(it)
-        }
 
 
         TestLambdaClass().checkNames()
@@ -36,7 +37,18 @@ class TestKotlinRecyclerActivity : AppCompatActivity() {
         list.add("Ali")
         list.add("Ali")
 
-        recycler.adapter = TestKotlinRecyclerAdapter(list, lambdaFunction)
+
+        myList.addAll(list)
+        adapter.notifyDataSetChanged()
+
+    }
+
+    private fun setUpRecyclerView() {
+        val lambdaFunction: (String) -> Unit = {
+            showToast(it)
+        }
+        adapter = TestKotlinRecyclerAdapter(myList, lambdaFunction)
+        recycler.adapter = adapter
         recycler.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
     }
 
