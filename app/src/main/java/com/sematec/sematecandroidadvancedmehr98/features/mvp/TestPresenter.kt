@@ -1,4 +1,4 @@
-package com.sematec.sematecandroidadvancedmehr98.mvp
+package com.sematec.sematecandroidadvancedmehr98.features.mvp
 
 class TestPresenter(private val view: MVPContract.View) : MVPContract.Presenter {
 

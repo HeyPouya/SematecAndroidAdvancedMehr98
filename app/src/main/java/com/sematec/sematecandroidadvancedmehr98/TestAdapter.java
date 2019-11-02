@@ -12,10 +12,10 @@ import java.util.List;
 
 public class TestAdapter extends RecyclerView.Adapter<TestAdapter.TestViewHolder> {
 
-    private List<PersonNameModel> list;
+    private List<String> list;
     private ClickInterface listener;
 
-    TestAdapter(List<PersonNameModel> list, ClickInterface listener) {
+    public TestAdapter(List<String> list, ClickInterface listener) {
         this.list = list;
         this.listener = listener;
 
@@ -50,13 +50,13 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.TestViewHolder
             v = itemView;
         }
 
-        void onBind(final PersonNameModel model) {
-            text1.setText(model.getName());
+        void onBind(final String model) {
+            text1.setText(model);
 
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    listener.onRecyclerItemClicked(model.getFamily());
+                    listener.onRecyclerItemClicked(model);
                 }
             });
         }

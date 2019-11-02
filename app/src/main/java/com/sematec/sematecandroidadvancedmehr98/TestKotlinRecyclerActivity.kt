@@ -37,6 +37,8 @@ class TestKotlinRecyclerActivity : AppCompatActivity() {
         list.add("Ali")
         list.add("Ali")
 
+        showToast()
+        showToast(family = "Qolizade")
 
         myList.addAll(list)
         adapter.notifyDataSetChanged()
@@ -52,7 +54,7 @@ class TestKotlinRecyclerActivity : AppCompatActivity() {
         recycler.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
     }
 
-    private fun showToast(name: String) {
-        Toast.makeText(this, name, Toast.LENGTH_LONG).show()
+    private fun showToast(name: String = "Pouya ", family: String = "Heydari") {
+        Toast.makeText(this, name + family, Toast.LENGTH_LONG).show()
     }
 }

@@ -1,4 +1,4 @@
-package com.sematec.sematecandroidadvancedmehr98.mvp
+package com.sematec.sematecandroidadvancedmehr98.features.mvp
 
 import android.os.Bundle
 import android.widget.Toast
